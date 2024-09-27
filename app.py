@@ -1,6 +1,12 @@
 import requests #libreria de python que permite hacer solicitudes HTTP
-from config import api_key
+from dotenv import load_dotenv
+import os
 
+# Cargar las variables del archivo .env
+load_dotenv()
+
+# Extraer la API Key
+api_key = os.getenv("apikey")
 
 def obtener_clima():
     user_input = input("Ingrese la ciudad: ") 
