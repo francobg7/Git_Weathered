@@ -33,18 +33,18 @@ def convertir_texto(datos):
 def main():
     # Configuración de argparse para manejar los argumentos de la línea de comandos
     parser = argparse.ArgumentParser(description="Consulta el clima de una ubicación.")
-    parser.add_argument("--format", "-f", type=str, choices=["1", "2", "3"], 
-                        help="Formato de salida: 1-Json, 2-CSV, 3-Texto plano", required=True)
+    parser.add_argument("--format", "-f", type=str, choices=["json", "csv", "texto"], 
+                        help="Formato de salida: json, csv, texto", required=True)
     args = parser.parse_args()
 
     formato_salida = args.format
 
     # Condiciones para la salida del formato
-    if formato_salida == "1":
+    if formato_salida == "json":
         print(convertir_json(datos))
-    elif formato_salida == "2":
+    elif formato_salida == "csv":
         print(convertir_csv(datos))
-    elif formato_salida == "3":
+    elif formato_salida == "texto":
         print(convertir_texto(datos))
     else:
         print("Formato no válido. Intente nuevamente.")
